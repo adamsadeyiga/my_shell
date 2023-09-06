@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 				print(": 1: ");
 				print(command);
 				print(": not found\n");*/
-
+				/*printf("%s: %d: %s: %s \n", argv[0], errno, command, strerror(errno));*/
 				perror("system");
 				continue;
 			}
