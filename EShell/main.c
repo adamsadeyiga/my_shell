@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-	char *prompt, *command, *command_copy, *token;
+	string prompt, command, command_copy, token;
 	size_t len;
 	__ssize_t nchar_read;
 	const char *delim;
@@ -50,20 +50,20 @@ int main(int argc, char **argv)
 
 			for (i = 0; token != NULL; i++)
 			{
-				argv[i] = malloc(sizeof(char) * strlen(token));
+				argv[i] = malloc(sizeof(char) * sizeof(token));
 				strcpy(argv[i], token);
-				token = strtok(NULL, command_copy);
+				token = strtok(NULL, delim);
 			}
 			argv[i] = NULL;
 
-			printf("%d", num_token);
-			printf("%s\n", command);
+			execmd(argv);
 		}
-
-		free(argv);
-		free(command_copy);
-		free(command);
+		
 	}
 
+	free(argv);
+	free(command_copy);
+	free(command);
+	
 	return (0);
 }
